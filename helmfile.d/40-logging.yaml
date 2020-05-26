@@ -1,0 +1,29 @@
+helmDefaults:
+  wait: true
+  timeout: 1000
+  # force: true
+  # recreatePods: true
+  atomic: true
+  createNamespace: true
+environments:
+  default:
+    values:
+      - ../values/default.yaml
+repositories:
+  - name: loki
+    url: https://grafana.github.io/loki/charts
+  - name: banzaicloud-stable
+    url: https://kubernetes-charts.banzaicloud.com
+releases:
+  - name: loki
+    namespace: local
+    chart: loki/loki
+    version: "0.29.0"
+    values:
+      - ../values/loki.yaml.gotmpl
+  - name: logs
+    namespace: local
+    chart: banzaicloud-stable/logging-operator-logging
+    version: "3.2.0"
+    values:
+      - ../values/logging.yaml.gotmpl

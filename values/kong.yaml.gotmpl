@@ -1,0 +1,43 @@
+ingressController:
+
+  installCRDs: false
+  admissionWebhook:
+    enabled: true
+    failurePolicy: Ignore
+autoscaling:
+  enabled: true
+
+postgres:
+  enabled: true
+
+
+proxy:
+  type: ClusterIP
+  http:
+    hostPort: 80
+  tls:
+    hostPort: 443
+admin:
+  enabled: true
+  type: ClusterIP
+  servicePort: 8001
+  containerPort: 8001
+  ingress:
+    enabled: true
+    hostname: kong-admin.{{ .Environment.Values.domain }}
+# for enterprise
+# manager:
+#   ingress:
+#     enabled: true
+#     hostname: kong-manager.{{ .Environment.Values.domain }}
+# portal:
+#   ingress:
+#     enabled: true
+#     hostname: kong-portal.{{ .Environment.Values.domain }}
+# portalapi:
+#   ingress:
+#     enabled: true
+#     hostname: kong-portalapi.{{ .Environment.Values.domain }}
+
+serviceMonitor:
+  enabled: true

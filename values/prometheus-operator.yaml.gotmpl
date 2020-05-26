@@ -1,0 +1,40 @@
+prometheusOperator:
+  createCustomResource: false
+prometheus:
+  enabled: true
+  ingress:
+    enabled: true
+    hosts:
+      - prometheus.{{ .Environment.Values.domain }}
+alertmanager:
+  enabled: false
+  ingress:
+    enabled: true
+    hosts:
+      - alertmanager.{{ .Environment.Values.domain }}
+grafana:
+  enabled: true
+  adminPassword: password
+  ingress:
+    enabled: true
+    hosts:
+      - grafana.{{ .Environment.Values.domain }}
+coreDns:
+  enabled: true
+kubeApiServer:
+  enabled: true
+kubeControllerManager:
+  enabled: true
+kubeEtcd:
+  enabled: false
+kubeProxy:
+  enabled: false
+kubeScheduler:
+  enabled: true
+kubeStateMetrics:
+  enabled: true
+kubelet:
+  enabled: true
+nodeExporter:
+  enabled: true
+

@@ -1,0 +1,28 @@
+helmDefaults:
+  wait: true
+  timeout: 1000
+  # force: true
+  # recreatePods: true
+  createNamespace: true
+environments:
+  default:
+    values:
+      - ../values/default.yaml
+repositories:
+  - name: stable
+    url: https://kubernetes-charts.storage.googleapis.com
+  - name: banzaicloud-stable
+    url: https://kubernetes-charts.banzaicloud.com
+releases:
+  - name: prometheus
+    namespace: local
+    chart: stable/prometheus-operator
+    version: "8.13.8"
+    values:
+      - ../values/prometheus-operator.yaml.gotmpl
+  - name: log-operator
+    namespace: local
+    chart: banzaicloud-stable/logging-operator
+    version: "3.2.0"
+    values:
+      - createCustomResource: false
