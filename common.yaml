@@ -8,3 +8,5 @@ environments:
   default:
     values:
       - ../values/default.yaml
+apiVersions:
+  - v2
