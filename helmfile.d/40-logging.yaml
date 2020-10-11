@@ -1,19 +1,5 @@
-helmDefaults:
-  wait: true
-  timeout: 1000
-  # force: true
-  # recreatePods: true
-  atomic: true
-  createNamespace: true
-environments:
-  default:
-    values:
-      - ../values/default.yaml
-repositories:
-  - name: loki
-    url: https://grafana.github.io/loki/charts
-  - name: banzaicloud-stable
-    url: https://kubernetes-charts.banzaicloud.com
+bases:
+  - ../common.yaml
 releases:
   - name: loki
     namespace: local

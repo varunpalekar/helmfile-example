@@ -1,0 +1,12 @@
+bases:
+  - ../common.yaml
+  - ../repository.yaml
+releases:
+  - name: prometheus-crds
+    namespace: local
+    # "8.13.8"
+    chart: git::http://github.com/prometheus-operator/prometheus-operator.git@/example/prometheus-operator-crd?ref=release-0.38
+  - name: log-operator-crds
+    # "3.2.0"
+    namespace: local
+    chart:  git::https://github.com/banzaicloud/logging-operator@/charts/logging-operator/crds?ref=3.2.0

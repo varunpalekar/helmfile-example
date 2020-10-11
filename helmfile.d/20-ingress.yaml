@@ -1,19 +1,5 @@
-helmDefaults:
-  wait: true
-  timeout: 1000
-  # force: true
-  # recreatePods: true
-  createNamespace: true
-  atomic: true
-environments:
-  default:
-    values:
-      - ../values/default.yaml
-repositories:
-  - name: kong
-    url: https://charts.konghq.com
-  - name: ingress-nginx
-    url: https://kubernetes.github.io/ingress-nginx
+bases:
+  - ../common.yaml
 releases:
   - name: kong
     namespace: local

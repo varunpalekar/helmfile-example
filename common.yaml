@@ -1,0 +1,10 @@
+helmDefaults:
+  wait: true
+  timeout: 1000
+  # force: true
+  # recreatePods: true
+  createNamespace: true
+environments:
+  default:
+    values:
+      - ../values/default.yaml

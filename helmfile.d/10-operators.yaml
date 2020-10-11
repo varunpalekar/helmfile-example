@@ -1,18 +1,5 @@
-helmDefaults:
-  wait: true
-  timeout: 1000
-  # force: true
-  # recreatePods: true
-  createNamespace: true
-environments:
-  default:
-    values:
-      - ../values/default.yaml
-repositories:
-  - name: stable
-    url: https://kubernetes-charts.storage.googleapis.com
-  - name: banzaicloud-stable
-    url: https://kubernetes-charts.banzaicloud.com
+bases:
+  - ../common.yaml
 releases:
   - name: prometheus
     namespace: local

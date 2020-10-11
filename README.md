@@ -9,7 +9,10 @@ Helmfile to cretae following things on kubernetes
 4. [kong ingress]
 5. [loki]
 
+# Test
 
+1. Install https://github.com/nektos/act
+2. run `act`
 
 [metrics-server]: https://github.com/helm/charts/tree/master/stable/metrics-server
 [prometheus operator]: https://github.com/helm/charts/tree/master/stable/prometheus-operator
